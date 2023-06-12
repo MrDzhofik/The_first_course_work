@@ -1,0 +1,16 @@
+CREATE OR REPLACE FUNCTION calculate_average_student(student_code varchar) RETURNS NUMERIC AS
+$$
+DECLARE
+    avg_mark NUMERIC;
+BEGIN
+    SELECT AVG(m.mark) INTO avg_mark
+    FROM student s
+    JOIN mark m ON s.student_id = m.student
+    WHERE s.student_id = student_code;
+
+    RETURN avg_mark;
+END;
+$$
+LANGUAGE plpgsql;
+
+SELECT round(calculate_average_student('22У262'), 2)

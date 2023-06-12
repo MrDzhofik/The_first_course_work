@@ -1,0 +1,22 @@
+<%= stylesheet_link_tag "table.css"%>
+
+<%= button_to 'Назад', root_path, class: "back_to_all btn btn-outline-primary", method: :get %>
+<div align="center">
+<h1 align="center">Кафедры</h1>
+    <table class="table table-bordered table-sm table-hover">
+        <th scope="col">Код кафедры</th>
+        <th scope="col">Название</th>
+        <th scope="col">Номер телефона</th>
+        <th scope="col">Год создания</th>
+        <th scope="col">Заведующий</th>
+        <% @department.each do |teacher| %>
+        <tr scope="row">
+            <td><%= teacher['department_id']%></td>
+            <td><%= teacher['department_name']%></td>
+            <td><%= teacher['phone_number']%></td>
+            <td><%= teacher['year_of_creation']%></td>
+            <td><%= teacher['head_of_department']%></td>
+        <% end %>
+    </table>
+</div>
+

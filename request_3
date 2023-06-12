@@ -1,0 +1,6 @@
+SELECT d.department_id, d.department_name, COUNT(g.group_id) as group_count
+FROM department d
+JOIN teacher t ON d.department_id = t.department
+JOIN gruppa g ON t.teacher_id = g.mentor
+GROUP BY department_id, department_name
+ORDER BY group_count DESC

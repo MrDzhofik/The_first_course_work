@@ -1,0 +1,16 @@
+<%= button_to 'Назад', root_path, class: "back_to_all btn btn-outline-primary", method: :get %>
+<div>
+<p>5 кафедр, в которых по предметам больше всего неудовлетворительных оценок.</p>
+<table class="table table-bordered table-sm table-hover">
+        <th scope="col">Название кафедры</th>
+        <th scope="col">Код кафедры</th>
+        <th scope="col">Количество "неудов"</th>
+        <% @request.each do |teacher| %>
+        <tr scope="row">
+            <td><%= teacher['department_name']%></td>
+            <td><%= teacher['department_id']%></td>
+            <td><%= teacher['bad_mark']%></td>
+        </tr>
+        <% end %>
+    </table>
+</div>

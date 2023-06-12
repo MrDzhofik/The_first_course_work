@@ -1,0 +1,12 @@
+<%= button_to 'Назад', root_path, class: "back_to_all btn btn-outline-primary", method: :get %>
+<div>
+<p>Группы, в которых староста имеет средний балл  4.5 или выше</p>
+<table class="table table-bordered table-sm table-hover">
+        <th scope="col">Код группы</th>
+        <% @request.each do |teacher| %>
+        <tr scope="row">
+            <td><%= teacher['group_id']%></td>
+        </tr>
+        <% end %>
+    </table>
+</div>

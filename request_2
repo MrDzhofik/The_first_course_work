@@ -1,0 +1,8 @@
+SELECT d.department_name, d.department_id, COUNT(m.mark) AS bad_mark
+FROM department d
+JOIN discipline di ON d.department_id = di.department
+JOIN mark m ON di.discipline_id = m.discipline
+WHERE m.mark = 5
+GROUP BY d.department_name, d.department_id
+ORDER BY bad_mark DESC
+LIMIT 5;

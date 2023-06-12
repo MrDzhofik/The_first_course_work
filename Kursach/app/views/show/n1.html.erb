@@ -1,0 +1,14 @@
+<%= button_to 'Назад', root_path, class: "back_to_all btn btn-outline-primary", method: :get %>
+<div>
+<p>Куратора группы, у которого в группе самое большое количество выговоров</p>
+<table class="table table-bordered table-sm table-hover">
+        <th scope="col">Имя куратора</th>
+        <th scope="col">Количество выговоров</th>
+        <% @request.each do |teacher| %>
+        <tr scope="row">
+            <td><%= teacher['full_name']%></td>
+            <td><%= teacher['reprimand_count']%></td>
+        </tr>
+        <% end %>
+    </table>
+</div>

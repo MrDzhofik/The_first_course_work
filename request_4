@@ -1,0 +1,12 @@
+SELECT g.group_id
+FROM gruppa g
+WHERE g.headman IN 
+(SELECT s.full_name
+FROM student s
+WHERE 
+ (SELECT AVG(m.mark) 
+  FROM mark m 
+  WHERE m.student = s.student_id) >= 4.5)
+-- JOIN mark m ON s.student_id = m.student 
+-- GROUP BY s.student_id, s.full_name
+-- HAVING AVG(m.mark) > 4.5;

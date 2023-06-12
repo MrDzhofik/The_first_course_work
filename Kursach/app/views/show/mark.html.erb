@@ -1,0 +1,24 @@
+<%= stylesheet_link_tag "table.css"%>
+
+<%= button_to 'Назад', root_path, class: "back_to_all btn btn-outline-primary", method: :get %>
+<div width=400px>
+<h1 align="center">Оценки</h1>
+    <table class="table table-bordered table-sm table-hover">
+        <th scope="col">Идентификатор оценки</th>
+        <th scope="col">Идентификатор студента</th>
+        <th scope="col">Идентификатор преподавателя</th>
+        <th scope="col">Идентификатор дисциплины</th>
+        <th scope="col">Оценка</th>
+        <th scope="col">Дата</th>
+        <% @mark.each do |teacher| %>
+        <tr scope="row">
+            <td><%= teacher['mark_id']%></td>
+            <td><%= teacher['student']%></td>
+            <td><%= teacher['teacher']%></td>
+            <td><%= teacher['discipline']%></td>
+            <td><%= teacher['mark']%></td>
+            <td><%= teacher['mark_date']%></td>
+        </tr>
+        <% end %>
+    </table>
+</div>

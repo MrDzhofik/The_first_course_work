@@ -1,0 +1,17 @@
+CREATE OR REPLACE FUNCTION calculate_kudos_count(group_code varchar) RETURNS INT AS
+$$
+DECLARE
+    kudos_count INT;
+BEGIN
+    SELECT COUNT(*) INTO kudos_count
+    FROM gruppa g
+    JOIN student s ON g.group_id = s.grupp
+    JOIN kudo k ON s.student_id = k.student
+    WHERE g.group_id = group_code;
+
+    RETURN kudos_count;
+END;
+$$
+LANGUAGE plpgsql;
+
+SELECT calculate_kudos_count('ИУ11-21М-2024')

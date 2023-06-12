@@ -1,0 +1,2 @@
+class Mango < ApplicationRecord
+end

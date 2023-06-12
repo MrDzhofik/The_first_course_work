@@ -1,0 +1,9 @@
+div{
+    max-width: fit-content;
+    position: relative;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    left: 10%;
+    right: 50%;
+}

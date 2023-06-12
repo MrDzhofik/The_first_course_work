@@ -1,0 +1,20 @@
+<%= stylesheet_link_tag "table.css"%>
+
+<%= button_to 'Назад', root_path, class: "back_to_all btn btn-outline-primary", method: :get %>
+<div width=400px>
+<h1 align="center">Группы</h1>
+    <table class="table table-bordered table-sm table-hover">
+        <th scope="col">Идентификатор группы</th>
+        <th scope="col">Староста</th>
+        <th scope="col">Кафедра</th>
+        <th scope="col">Куратор</th>
+        <% @group.each do |teacher| %>
+        <tr scope="row">
+            <td><%= teacher['group_id']%></td>
+            <td><%= teacher['headman']%></td>
+            <td><%= teacher['department']%></td>
+            <td><%= teacher['mentor']%></td>
+        </tr>
+        <% end %>
+    </table>
+</div>

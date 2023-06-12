@@ -1,0 +1,16 @@
+CREATE OR REPLACE FUNCTION calculate_average_mark(discipline_code varchar) RETURNS NUMERIC AS
+$$
+DECLARE
+    avg_mark numeric;
+BEGIN
+    SELECT AVG(m.mark) INTO avg_mark
+    FROM discipline d
+    JOIN mark m ON d.discipline_id = m.discipline
+    WHERE d.discipline_id = discipline_code;
+
+    RETURN avg_mark;
+END;
+$$
+LANGUAGE plpgsql;
+
+SELECT round(calculate_average_mark('ИУ3УПНЭ'),2)

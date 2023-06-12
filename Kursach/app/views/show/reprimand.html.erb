@@ -1,0 +1,19 @@
+<%= stylesheet_link_tag "table.css"%>
+
+<%= button_to 'Назад', root_path, class: "back_to_all btn btn-outline-primary", method: :get %>
+<div width=400px>
+<h1 align="center">Выговоры</h1>
+    <table class="table table-bordered table-sm table-hover">
+        <th scope="col">Идентификатор студента</th>
+        <th scope="col">Тема</th>
+        <th scope="col">Дата</th>
+        <% @reprimand.each do |teacher| %>
+        <tr scope="row">
+            <td><%= teacher['student']%></td>
+            <td><%= teacher['topic']%></td>
+            <td><%= teacher['give_date']%></td>
+        </tr>
+        <% end %>
+    </table>
+</div>
+

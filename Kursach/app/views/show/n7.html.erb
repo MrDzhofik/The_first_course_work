@@ -1,0 +1,12 @@
+<%= button_to 'Назад', root_path, class: "back_to_all btn btn-outline-primary", method: :get %>
+<div>
+<p>Количество благодарностей на группу</p>
+<table class="table table-bordered table-sm table-hover">
+        <th scope="col">Количество</th>
+        <% @request.each do |teacher| %>
+        <tr scope="row">
+            <td><%= teacher['calculate_kudos_count']%></td>
+        </tr>
+        <% end %>
+    </table>
+</div>

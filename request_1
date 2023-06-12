@@ -1,0 +1,11 @@
+-- Таким образом, данный запрос вернет идентификатор куратора (curator_id), у которого самое большое количество выговоров в группе.
+-- SELECT t.full_name FROM teacher t
+-- WHERE t.teacher_id IN
+SELECT t.full_name, COUNT(r.reprimand_id) AS reprimand_count
+FROM gruppa g
+JOIN Student s ON s.grupp = g.group_id
+JOIN Reprimand r ON r.student = s.student_id
+JOIN Teacher t ON t.teacher_id = g.mentor
+GROUP BY t.full_name
+ORDER BY reprimand_count DESC
+LIMIT 1;
